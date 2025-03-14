@@ -30,7 +30,7 @@ export const useWebRTC = ({ stream, signalingMessage }: useWebRTCProp) => {
     }
 
     const newPeerConnection = new RTCPeerConnection({
-      iceServers: [{ urls: "stun.l.google.com:19302" }],
+      iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
     });
     setPeerConnection(newPeerConnection);
   }, [peerConnection]);
