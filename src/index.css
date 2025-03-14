@@ -100,27 +100,3 @@ body {
 .animate-slide-in-right {
     animation: slide-in-right 0.3s ease-out;
 }
-
-/* Base styles */
-.video-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.video-container > div {
-  flex: 1;
-  position: relative;
-}
-
-/* Wide-screen layout */
-@media (min-width: 768px) {
-  .video-container {
-    flex-direction: row;
-  }
-
-  .video-container > div {
-    height: 100%;
-  }
-}
-  }
