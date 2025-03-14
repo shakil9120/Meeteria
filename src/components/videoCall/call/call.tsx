@@ -23,6 +23,7 @@ interface userProps {
   duoName?: string;
   polite: boolean;
 }
+
 export default function Call() {
   const socket = useSocket();
   const { duoId } = useParams();
@@ -98,48 +99,32 @@ export default function Call() {
   }, [socket, stranger]);
 
   return (
-    <>
-      <div className="w-1/2 flex flex-col bg-gray-800 rounded-2xl shadow-xl overflow-hidden relative">
-        {isMatched
-          ? (
-            <>
-              <RemoteCall
-                stream={stream}
-                handleCallEnd={handlePeer}
-                stranger={stranger}
-                userType={duoId ? "duo" : "stranger"}
-              />
-              {duo && peerState.stranger === "connected" && (
-                <RemoteCall
-                  stream={stream}
-                  handleCallEnd={handlePeer}
-                  stranger={duo}
-                  userType={"duo"}
-                />
-              )}
-
-              <Controls
-                strangerId={stranger?.pairId}
-                duoId={duo?.pairId}
-                friendId={friend?.pairId}
-                endCall={handlePeer}
-                closeStream={closeStream}
-              />
-            </>
-          )
-          : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700">
-              <p className="text-3xl text-white font-semibold">
-                Finding your match...
-              </p>
-            </div>
-          )}
+    <div className="flex flex-col md:flex-row w-full h-full">
+      <div className="flex-1 md:h-full h-1/2 relative">
+        <RemoteCall
+          stream={stream}
+          handleCallEnd={handlePeer}
+          stranger={stranger}
+          userType={duoId ? "duo" : "stranger"}
+        />
       </div>
-      <FriendCall
-        stranger={stranger}
-        stream={stream}
+      {duo && peerState.stranger === "connected" && (
+        <div className="flex-1 md:h-full h-1/2 relative">
+          <RemoteCall
+            stream={stream}
+            handleCallEnd={handlePeer}
+            stranger={duo}
+            userType={"duo"}
+          />
+        </div>
+      )}
+      <Controls
+        strangerId={stranger?.pairId}
+        duoId={duo?.pairId}
+        friendId={friend?.pairId}
+        endCall={handlePeer}
         closeStream={closeStream}
       />
-    </>
+    </div>
   );
 }
