@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #fef2e4; /* Updated to match your background color */
+    max-height: 50vh;
+    margin: 0;
+}
+
+@layer base {
+    :root {
+        --background: 30 40% 96%; /* Adjusted to approximate #fef2e4 in HSL */
+        --foreground: 350 85% 38%; /* Darker shade complementing #fc2b4c */
+        --card: 0 0% 100%; /* White cards still work well */
+        --card-foreground: 350 85% 38%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 350 85% 38%;
+        --primary: 350 80% 55%; /* Adjusted to match #fc2b4c in HSL */
+        --primary-foreground: 0 0% 98%; /* White text on primary */
+        --secondary: 30 40% 90%; /* Lighter peach shade for secondary */
+        --secondary-foreground: 350 85% 38%;
+        --muted: 30 20% 92%; /* Muted version of background */
+        --muted-foreground: 350 50% 50%; /* Softer red-gray for muted text */
+        --accent: 30 40% 90%;
+        --accent-foreground: 350 85% 38%;
+        --destructive: 0 84.2% 60.2%; /* Keeping destructive as is */
+        --destructive-foreground: 0 0% 98%;
+        --border: 30 20% 85%; /* Slightly darker peach for borders */
+        --input: 30 20% 85%;
+        --ring: 350 80% 55%; /* Matches primary #fc2b4c */
+        --chart-1: 350 76% 61%; /* Adjusted to align with red theme */
+        --chart-2: 340 58% 50%;
+        --chart-3: 355 65% 45%;
+        --chart-4: 10 74% 66%;
+        --chart-5: 5 87% 67%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --background: 350 80% 20%; /* Darker red-toned background */
+        --foreground: 30 40% 96%; /* Light peach for dark mode text */
+        --card: 350 80% 15%; /* Darker red for cards */
+        --card-foreground: 30 40% 96%;
+        --popover: 350 80% 15%;
+        --popover-foreground: 30 40% 96%;
+        --primary: 350 80% 55%; /* Keeping #fc2b4c as primary */
+        --primary-foreground: 0 0% 98%;
+        --secondary: 350 60% 25%; /* Darker muted red */
+        --secondary-foreground: 30 40% 96%;
+        --muted: 350 50% 30%; /* Muted dark red */
+        --muted-foreground: 30 20% 80%; /* Softer peach for muted text */
+        --accent: 350 60% 25%;
+        --accent-foreground: 30 40% 96%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 350 50% 35%; /* Darker red border */
+        --input: 350 50% 35%;
+        --ring: 350 80% 55%; /* Matches primary #fc2b4c */
+        --chart-1: 350 70% 50%; /* Adjusted for dark mode red theme */
+        --chart-2: 340 60% 45%;
+        --chart-3: 355 80% 55%;
+        --chart-4: 10 65% 60%;
+        --chart-5: 5 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* In your CSS file or style tag */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+}
