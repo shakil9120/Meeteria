@@ -4,7 +4,6 @@ import useMedia from "@/hooks/useMedia";
 import { useSocket } from "@/context/socketContext";
 import RemoteCall from "./remoteCall";
 import { useParams } from "react-router-dom";
-import FriendCall from "./friendCall";
 import { useFriend } from "@/context/friendContext";
 import { usePeerState } from "@/context/peerStateContext";
 
@@ -30,13 +29,11 @@ export default function Call() {
   const { friend } = useFriend();
   const { peerState } = usePeerState();
   const { stream, closeStream } = useMedia();
-  const [isMatched, setIsMatched] = useState(false);
   const [duo, setDuo] = useState<strangerProp | null>(null);
   const [stranger, setStranger] = useState<strangerProp | null>(null);
 
   const handlePeer = useCallback(
     (data?: userProps) => {
-      setIsMatched(!!data);
       if (!data) {
         console.log("stranger left");
         setStranger(null);
