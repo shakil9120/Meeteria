@@ -17,7 +17,6 @@ export default function useMedia() {
           autoGainControl: true,
           sampleRate: 96000, // Higher sample rate for better quality
           channelCount: 2, // Stereo audio
-          bitrate: 128000, // Higher bitrate for better quality
         },
       });
 
@@ -32,7 +31,7 @@ export default function useMedia() {
       setStream(streamInstance);
 
       const pc = new RTCPeerConnection();
-      pc.addStream(streamInstance);
+      streamInstance.getTracks().forEach(track => pc.addTrack(track, streamInstance));
       setPeerConnection(pc);
 
       pc.oniceconnectionstatechange = () => {
