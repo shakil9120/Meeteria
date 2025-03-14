@@ -101,20 +101,28 @@ body {
     animation: slide-in-right 0.3s ease-out;
 }
 
+on: center; /* Ensure cropping is centered */
+
+/* Base styles */
 .video-container {
-    position: relative;
-    width: 100%; /* Full width of the parent */
-    height: 100%; /* Full height of the parent */
-    overflow: hidden; /* Ensure no overflow */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.video-container > div {
+  flex: 1;
+  position: relative;
+}
+
+/* Wide-screen layout */
+@media (min-width: 768px) {
+  .video-container {
+    flex-direction: row;
   }
-  
-  .video-container video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the video */
-    width: 100%;
+
+  .video-container > div {
     height: 100%;
-    object-fit: cover; /* Crop the video to fit the container */
-    object-position: center; /* Ensure cropping is centered */
+  }
+}
   }
