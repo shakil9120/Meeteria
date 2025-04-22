@@ -1,7 +1,7 @@
 import { useValidateToken } from "../../hooks/useValidateToken";
 import StartPage from "../videoCall/startCall";
 import { StartPageProvider, useStartPage } from "@/context/startPageContext";
-import Header from "./header";
+// import Header from "./header";
 import Call from "../videoCall/call/call";
 import { SocketProvider } from "@/context/socketContext";
 import { useParams } from "react-router-dom";
@@ -39,9 +39,9 @@ export default function Home() {
         <FriendProvider>
           <PeerStateProvider>
             <div className="flex flex-col h-screen bg-background text-foreground">
-              <Header />
+              {/* <Header /> */}
               <main className="flex-1 overflow-auto">
-                <div className="flex-1 h-full flex p-6 space-x-4">
+                <div className="flex-1 h-full flex ">
                   <HomeContent />
                 </div>
               </main>

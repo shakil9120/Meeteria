@@ -19,7 +19,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-background shadow-md p-2 px-6 flex justify-between items-center">
+    <header className="bg-background shadow-md p-2 px-6 flex justify-between items-center ">
       <div className="flex items-center">
         <MeeteriaLogo size="md" />
       </div>

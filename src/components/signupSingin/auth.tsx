@@ -186,10 +186,9 @@ const Auth = () => {
       {notification && (
         <div
           className={`fixed bottom-6 right-6 flex items-center gap-2 rounded-lg px-6 py-3 shadow-lg backdrop-blur-sm
-            ${
-              notification.type === "error"
-                ? "bg-destructive text-destructive-foreground"
-                : "bg-primary text-primary-foreground"
+            ${notification.type === "error"
+              ? "bg-destructive text-destructive-foreground"
+              : "bg-primary text-primary-foreground"
             }`}
         >
           <CheckCircle className="h-5 w-5" />
