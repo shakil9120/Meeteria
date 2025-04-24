@@ -128,7 +128,7 @@ export default function Call() {
             </>
           )
           : (
-            <div className="w-full h-auto flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700">
               <p className="text-3xl text-white font-semibold">
                 Finding your match...
               </p>
