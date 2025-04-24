@@ -22,7 +22,7 @@ export default function RemoteVid({ pc }: RemoteVidProp): JSX.Element {
       ref={vid}
       autoPlay
       playsInline
-      className="w-full h-auto object-cover"
+      className="w-full h-full object-cover"
     />
   );
 }
